@@ -1,77 +1,75 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+//import { StyleSheet } from 'react-native';
 
 import { ExternalLink } from './ExternalLink';
 import { MonoText } from './StyledText';
-import { Text, View } from './Themed';
+//import { Text, View } from './Themed';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 import Colors from '@/constants/Colors';
 
 export default function EditScreenInfo({ path }: { path: string }) {
+  const getQuestionPaper = () => {
+    // Your logic for getting question paper
+    console.log("Get Question Paper");
+  };
+
+  const uploadAnswerSheet = () => {
+    // Your logic for uploading answer sheet
+    console.log("Upload Answer Sheet");
+  };
+
+  const uploadQuestion = () => {
+    // Your logic for uploading question
+    console.log("Upload Question");
+  };
+
+  const getResult = () => {
+    // Your logic for getting result
+    console.log("Get Result");
+  };
+
   return (
-    <View>
-      <View style={styles.getStartedContainer}>
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Open up the code for this screen:
-        </Text>
+    <View style={styles.container}>
+    <TouchableOpacity style={styles.button} onPress={getQuestionPaper}>
+      <Text style={styles.buttonText}>Get Question Paper</Text>
+    </TouchableOpacity>
 
-        <View
-          style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
-          darkColor="rgba(255,255,255,0.05)"
-          lightColor="rgba(0,0,0,0.05)">
-          <MonoText>{path}</MonoText>
-        </View>
+    <TouchableOpacity style={styles.button} onPress={uploadAnswerSheet}>
+      <Text style={styles.buttonText}>Upload Answer Sheet</Text>
+    </TouchableOpacity>
 
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)">
-          Change any of the text, save the file, and your app will automatically update.
-        </Text>
-      </View>
+    <TouchableOpacity style={styles.button} onPress={uploadQuestion}>
+      <Text style={styles.buttonText}>Upload Question Paper</Text>
+    </TouchableOpacity>
 
-      <View style={styles.helpContainer}>
-        <ExternalLink
-          style={styles.helpLink}
-          href="https://docs.expo.io/get-started/create-a-new-app/#opening-the-app-on-your-phonetablet">
-          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
-            Tap here if your app doesn't automatically update after making changes
-          </Text>
-        </ExternalLink>
-      </View>
-    </View>
+    <TouchableOpacity style={styles.button} onPress={getResult}>
+      <Text style={styles.buttonText}>Get Result</Text>
+    </TouchableOpacity>
+  </View>
   );
 }
 
 const styles = StyleSheet.create({
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightContainer: {
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  helpContainer: {
-    marginTop: 15,
-    marginHorizontal: 20,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    
+  
     alignItems: 'center',
   },
-  helpLink: {
-    paddingVertical: 15,
+  button: {
+    backgroundColor: '#7E73F3',
+    padding: 20,
+    marginVertical: 25,
+    width: 347,
+    height:65,
+    alignItems: 'center',
+    borderRadius: 16,
   },
-  helpLinkText: {
-    textAlign: 'center',
+  buttonText: {
+    color: 'white',
+    fontSize: 24,
+    fontFamily: 'lato',
   },
 });
